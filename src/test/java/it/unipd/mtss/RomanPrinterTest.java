@@ -10,17 +10,21 @@ public class RomanPrinterTest {
         assertEquals("  _____ \n |_   _|\n   | |  \n   | |  \n  _| |_ \n |_____|\n", RomanPrinter.print(1));
         assertEquals("  _____   _____ \n |_   _| |_   _|\n   | |     | |  \n   | |     | |  \n  _| |_   _| |_ \n |_____| |_____|\n", RomanPrinter.print(2));
         assertEquals("  _____   _____   _____ \n |_   _| |_   _| |_   _|\n   | |     | |     | |  \n   | |     | |     | |  \n  _| |_   _| |_   _| |_ \n |_____| |_____| |_____|\n", RomanPrinter.print(3));
+        
+        assertEquals("  _____  __      __\n |_   _| \\ \\    / /\n   | |    \\ \\  / / \n   | |     \\ \\/ /  \n  _| |_     \\  /   \n |_____|     \\/    \n", RomanPrinter.print(4));
+        assertEquals(" __      __\n \\ \\    / /\n  \\ \\  / / \n   \\ \\/ /  \n    \\  /   \n     \\/    \n", RomanPrinter.print(5));
+        assertEquals(" __      __  _____ \n \\ \\    / / |_   _|\n  \\ \\  / /    | |  \n   \\ \\/ /     | |  \n    \\  /     _| |_ \n     \\/     |_____|\n", RomanPrinter.print(6));
     }
 
     @Test
     public void testStampaNumeroBasso() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(0));
-        assertEquals("Errore: il numero deve essere tra 1 e 3.", e.getMessage());
+        assertEquals("Non valido", e.getMessage());
     }
 
     @Test
     public void testStampaNumeroAlto() {
-        Exception e = assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(4));
-        assertEquals("Errore: il numero deve essere tra 1 e 3.", e.getMessage());
+        Exception e = assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(7));
+        assertEquals("Non valido", e.getMessage());
     }
 }

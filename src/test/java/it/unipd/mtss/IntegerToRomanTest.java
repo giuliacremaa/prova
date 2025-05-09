@@ -10,12 +10,17 @@ public class IntegerToRomanTest {
         assertEquals("I", IntegerToRoman.convert(1));
         assertEquals("II", IntegerToRoman.convert(2));
         assertEquals("III", IntegerToRoman.convert(3));
+
+        assertEquals("IV", IntegerToRoman.convert(4));
+        assertEquals("V", IntegerToRoman.convert(5));
+        assertEquals("VI", IntegerToRoman.convert(6));
     }
 
+   
     @Test
     public void testConvertiNumeroGrande() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            for (int n = 4; n<=1000; n++){
+            for (int n = 7; n<=1000; n++){
                 IntegerToRoman.convert(n);
             }
         });
